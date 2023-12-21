@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model catalog {
+  id      Int       @id @default(autoincrement())
+  name    String
+  product product[]
+}
+
+model contactus {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  message   String   @db.Text
+  createdAt DateTime @default(now())
+}
+
+model product {
+  id        Int      @id @default(autoincrement())
+  name      String
+  price     Int
+  imageUrl  String?
+  catalogId Int?
+  createdAt DateTime @default(now())
+  catalog   catalog? @relation(fields: [catalogId], references: [id], map: "Product_catalogId_fkey")
+
+  @@index([catalogId], map: "Product_catalogId_fkey")
+}

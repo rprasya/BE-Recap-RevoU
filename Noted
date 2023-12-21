@@ -1,0 +1,25 @@
+- FE
+Halaman yang akan di buat :
+
+1. landing page (static + ngambil beberapa data dari backend buat ngeliatin product highlight)
+2. product (ngambil data dari api product)
+3. category (ngambil data product berdasarkan category_id)
+4. about me (static)
+5. message (ngirim data ke api message)
+
+
+- BE
+Membuat 3 main rute : 
+
+1. Product Page: 
+a. GET
+b. GET by catalog_id
+c. POST
+
+2. Category Page:
+a. GET 
+b. POST
+
+3. Message Page:
+a. POST
+b. GET

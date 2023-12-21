@@ -6,7 +6,7 @@ const productRoutes = express.Router();
 productRoutes.get("/", async (req, res) => {
   const products = await prisma.product.findMany({
     include: {
-      Catalog: true,
+      catalog: true,
     },
   });
   res.status(200).send(products);

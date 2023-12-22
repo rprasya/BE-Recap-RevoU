@@ -34,7 +34,7 @@ productRoutes.get("/:catalogId", async (req, res) => {
   const { catalogId } = req.params;
   const products = await prisma.product.findMany({
     where: {
-      Catalog: {
+      catalog: {
         id: parseInt(catalogId),
       },
     },
